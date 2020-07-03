@@ -1,0 +1,19 @@
+.side-bar
+  .side-header
+    .side-header-box
+      .side-header-box__name
+        %spna UserName
+      .side-header-box__icon
+        = link_to "#"  do
+          = icon('fas', 'edit', class: "side-header-icon")
+          %spna<>
+        = link_to "#"  do
+          = icon('fas', 'cog', class: "side-header-icon")
+          %spna<>
+  .side-body
+    .group
+      = link_to "#", class: "group-link" do
+        .group-link__name
+          %p テストグループ
+        .group-link__message
+          %p まだメッセージがありません
