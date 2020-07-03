@@ -27,7 +27,7 @@
 }
 
 .side-header-icon{
-  color: white;
+  color: $sideBerTextColor;
   font-size: 0.9em;
   padding-right: 5px
 }
@@ -41,12 +41,12 @@
 .group-link{
   text-decoration: none;
     &__name{
-        color: white;
+        color: $sideBerTextColor;
         text-decoration: none;
         font-size: 15px;
     }
     &__message{
-        color: white;
+        color: $sideBerTextColor;
         font-size: 11px;
         margin-top: 5px;
     }
