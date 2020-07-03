@@ -1,0 +1,23 @@
+.chat
+  .chat-header
+    .chat-header-left
+      %h2.chat-header-left__group-name グループ名
+      %ul.chat-header-left__group-menber
+        menber：
+        %li users_name
+    = link_to "#", class: "chat-header-right" do
+      .chat-header-right__Edit-btn Edit
+  .chat-message
+    .chat-message-box
+      .message-info
+        %p.message-info__text 投稿者名
+        %p.message-info__date 2020/09/01(Man)19:08:7
+    %p.message-text メッセージ
+  .chat-footer
+    .chat-footer-box
+      .from
+        %input{class: "message-from", type: "text", placeholder: " type a message"}
+        %label{class: "file-label"}
+          = icon('fas','image')
+          %input{type: "file", class: "file-label-input"}
+        %input{type: "submit", class:"submit-btn", value: "Send"}
