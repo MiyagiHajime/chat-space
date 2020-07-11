@@ -7,13 +7,14 @@
         = link_to new_group_path  do
           = icon('fas', 'edit', class: "side-header-icon")
           %spna<>
-        = link_to edit_user_path(current_user) do
+        = link_to edit_user_path(current_user.id) do
           = icon('fas', 'cog', class: "side-header-icon")
           %spna<>
   .side-body
-    .group
-      = link_to "#", class: "group-link" do
-        .group-link__name
-          %p テストグループ
-        .group-link__message
-          %p まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to "#", class: "group-link" do
+          .group-link__name
+            = group.name
+          .group-link__message
+            %p まだメッセージがありません
