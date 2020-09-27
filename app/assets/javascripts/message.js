@@ -1,11 +1,10 @@
 $(function () {
 
-
   function buildHTML(message) {
 
     if (message.image) {
       var html = `
-      <div class="chat-messageAA">
+      <div class="chat-messageAA" data-message-id=${message.id}>
         <div class="chat-message-box">
           <div class="message-info">
             <div class="message-info__name">
@@ -25,7 +24,7 @@ $(function () {
       return html
     } else {
       var html = `
-      <div class="chat-messageAA">
+      <div class="chat-messageAA" data-message-id=${message.id}>
         <div class="chat-message-box">
           <div class="message-info">
             <div class="message-info__name">
@@ -76,4 +75,33 @@ $(function () {
         alert("メッセージ送信に失敗しました");
       });
   });
+
+
+  //最新のメッセージを取得する関数
+  var reloadMessage = function () {
+    var last_message_id = $('.chat-messageAA:last').data("message-id");
+    $.ajax({
+      url: 'api/messages',
+      type: 'GET',
+      dataType: 'json',
+      data: { id: last_message_id }
+    })
+      .done(function (messages) {
+        if (messages.length !== 0) {
+          var insertHTML = '';
+          $.each(messages, function (i, message) {
+            insertHTML += buildHTML(message)
+          });
+          $('.chat-message').append(insertHTML);
+          $('.chat-message').animate({ scrollTop: $('.chat-message')[0].scrollHeight });
+        }
+      })
+      .fail(function () {
+        alert('error');
+      })
+  }
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessage, 7000);
+  }
 });

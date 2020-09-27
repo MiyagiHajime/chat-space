@@ -1,4 +1,4 @@
-.chat-messageAA
+.chat-messageAA{data: {message: {id: message.id}}}
   .chat-message-box
     .message-info
       .message-info__name
@@ -10,11 +10,3 @@
       %p.lower-message__content
         = message.content
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-
-
-    -# .chat-message
-    -# .chat-message-box
-    -#   .message-info
-    -#     %p.message-info__text 投稿者名
-    -#     %p.message-info__date 2020/09/01(Man)19:08:7
-    -# %p.message-text メッセージ
