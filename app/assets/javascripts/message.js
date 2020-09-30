@@ -16,7 +16,7 @@ $(function () {
           </div>
         </div>
         <div class="message-text">
-          <p class="lower-message__content"> ${message.content} </p>${message.image}
+          <p class="lower-message__content"> ${message.content} </p>
           <img src=${message.image}>
         </div>
       </div>
